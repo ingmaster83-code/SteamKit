@@ -1,0 +1,18 @@
+{
+  "name": "SteamKit - 스팀 게임 할인 조회",
+  "short_name": "SteamKit",
+  "description": "스팀 실시간 특가 할인, 인기 순위, 신규 출시 게임 조회",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1B2838",
+  "theme_color": "#1B2838",
+  "lang": "ko",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

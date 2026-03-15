@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SteamKit - 스팀 할인 게임 · 인기 순위 실시간 조회</title>
+  <meta name="description" content="스팀(Steam) 실시간 특가 할인 게임, 인기 판매 순위, 신규 출시 게임을 한눈에 확인하세요. 무료로 즐기는 스팀 게임 탐색기.">
+  <meta name="keywords" content="스팀 할인, Steam 세일, 스팀 인기 게임, 스팀 신규 게임, 게임 할인 정보, Steam 특가, 스팀 순위">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://steamkit.wooahouse.com/">
+
+  <meta property="og:title" content="SteamKit - 스팀 할인 게임 실시간 조회">
+  <meta property="og:description" content="스팀 실시간 특가 할인, 인기 순위를 한눈에 확인하세요.">
+  <meta property="og:url" content="https://steamkit.wooahouse.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://steamkit.wooahouse.com/icons/icon.svg">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#1B2838">
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6464921081676309" crossorigin="anonymous"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "SteamKit",
+    "url": "https://steamkit.wooahouse.com",
+    "description": "스팀 할인 게임 및 인기 순위 실시간 조회 서비스",
+    "inLanguage": "ko-KR"
+  }
+  </script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="icons/icon.svg" alt="SteamKit" width="28" height="28">
+      <span>SteamKit</span>
+    </a>
+    <nav>
+      <a href="about.html">소개</a>
+      <a href="privacy.html">개인정보</a>
+    </nav>
+  </div>
+</header>
+
+<div class="our-sites-bar">
+  <span class="our-sites-label">Linker Services</span>
+  <div class="our-sites-links">
+    <a href="https://linker.wooahouse.com/" target="_blank" rel="noopener">🔗 Linker</a>
+    <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">📄 PDFKit</a>
+    <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">🖼️ ImageKit</a>
+    <a href="https://colorkit.wooahouse.com/" target="_blank" rel="noopener">🎨 ColorKit</a>
+    <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener">✏️ TextKit</a>
+    <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">📱 QRKit</a>
+    <a href="https://steamkit.wooahouse.com/" target="_blank" rel="noopener">🎮 SteamKit</a>
+    <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">🧩 ChromeKit</a>
+    <a href="https://fontkit.wooahouse.com/" target="_blank" rel="noopener">🔤 FontKit</a>
+    <a href="https://mactools.wooahouse.com/" target="_blank" rel="noopener">🍎 MacTools</a>
+    <a href="https://pctools.wooahouse.com/" target="_blank" rel="noopener">🖥️ PCTools</a>
+    <a href="https://vskit.wooahouse.com/" target="_blank" rel="noopener">💻 VSKit</a>
+  </div>
+</div>
+
+<section class="hero">
+  <h1>스팀 게임 할인 · 인기 순위 실시간 조회</h1>
+  <p>스팀(Steam)의 특가 할인, 인기 판매, 신규 출시 게임을<br><strong style="color:#66C0F4;">실시간</strong>으로 한눈에 확인하세요</p>
+  <button id="heroInstallBtn" class="hero-install-btn">📌 홈 화면에 추가</button>
+</section>
+
+<main class="main-content">
+
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="specials">🔥 특가 할인</button>
+    <button class="tab-btn" data-tab="top_sellers">📈 인기 판매</button>
+    <button class="tab-btn" data-tab="new_releases">🆕 신규 출시</button>
+  </div>
+
+  <div id="loadingState" class="loading-state">
+    <div class="spinner"></div>
+    <p>Steam 데이터를 불러오는 중...</p>
+  </div>
+
+  <div id="errorState" class="error-state">
+    <p>😔 데이터를 불러오지 못했습니다.<br>잠시 후 다시 시도해주세요.</p>
+    <button onclick="loadSteamData()">다시 시도</button>
+  </div>
+
+  <div id="gamesGrid" class="games-grid" style="display:none;"></div>
+
+  <p class="data-source">데이터 출처: Steam Store API · 가격 기준: 한국(KRW) · 실시간 반영</p>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <h4>SteamKit</h4>
+      <a href="about.html">서비스 소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
+    <div class="footer-links">
+      <h4>Linker 서비스</h4>
+      <a href="https://pdfkit.wooahouse.com/" target="_blank" rel="noopener">PDFKit</a>
+      <a href="https://imagekit.wooahouse.com/" target="_blank" rel="noopener">ImageKit</a>
+      <a href="https://textkit.wooahouse.com/" target="_blank" rel="noopener">TextKit</a>
+      <a href="https://qrkit.wooahouse.com/" target="_blank" rel="noopener">QRKit</a>
+      <a href="https://chromekit.wooahouse.com/" target="_blank" rel="noopener">ChromeKit</a>
+      <a href="https://linker.wooahouse.com/" target="_blank" rel="noopener">Linker</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Linker. All rights reserved.</p>
+    <p class="footer-disclaimer">본 서비스는 Valve Corporation(Steam)과 무관합니다. 게임 이미지 및 정보의 저작권은 해당 퍼블리셔에 있습니다.</p>
+  </div>
+</footer>
+
+<script src="js/steam.js"></script>
+<script src="js/pwa-install.js"></script>
+</body>
+</html>
