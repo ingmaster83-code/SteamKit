@@ -1,4 +1,4 @@
-const CACHE_NAME = 'steamkit-v1';
+const CACHE_NAME = 'steamkit-v2';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
