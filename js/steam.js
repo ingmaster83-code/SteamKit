@@ -46,7 +46,7 @@ async function loadSteamData() {
 
 function formatPrice(price) {
   if (price === 0) return '<span class="final-price is-free">무료</span>';
-  return `₩${price.toLocaleString('ko-KR')}`;
+  return `₩${Math.round(price / 100).toLocaleString('ko-KR')}`;
 }
 
 function renderPlatforms(item) {
