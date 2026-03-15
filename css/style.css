@@ -61,6 +61,7 @@ nav a:hover { color: var(--text); }
 
 /* ── Our Sites Bar ── */
 .our-sites-bar {
+  justify-content: center;
   background: var(--bg-header);
   border-bottom: 1px solid var(--border);
   padding: 7px 20px;
