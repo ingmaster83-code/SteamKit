@@ -1,4 +1,4 @@
-const INSTALL_KEY = 'steamkit-install-dismissed';
+﻿const INSTALL_KEY = 'WooaSteam-install-dismissed';
 let deferredPrompt = null;
 
 window.addEventListener('beforeinstallprompt', e => {
@@ -33,9 +33,9 @@ if (!sessionStorage.getItem(INSTALL_KEY) &&
     banner.className = 'pwa-banner';
     banner.innerHTML = `
       <div class="pwa-banner-content">
-        <img src="icons/icon.svg" width="40" height="40" alt="SteamKit">
+        <img src="icons/icon.svg" width="40" height="40" alt="WooaSteam">
         <div>
-          <strong>SteamKit</strong>
+          <strong>WooaSteam</strong>
           <span>홈 화면에 추가하고 빠르게 접속하세요</span>
         </div>
         <button class="pwa-install-btn" id="bannerInstallBtn">설치</button>
